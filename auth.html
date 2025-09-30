@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MS365 Auth Redirect</title>
+</head>
+<body>
+  <p>Authentifizierung läuft… dieses Fenster schließt sich automatisch.</p>
+  
+  <script>
+    (function() {
+      try {
+        // Die gesamte URL (inkl. ?code=...) an das Hauptfenster schicken
+        const payload = {
+          type: 'authorization_response',
+          url: window.location.href
+        };
+
+        // Wenn die App ein opener-Fenster hat (Popup-Flow)
+        if (window.opener && !window.opener.closed) {
+          // Achtung: Für Produktion unbedingt die Origin prüfen anstelle von '*'
+          window.opener.postMessage(payload, '*');
+        }
+      } catch (e) {
+        console.error('Fehler beim Senden des Auth-Codes:', e);
+      }
+
+      // Popup schließen nach kurzer Verzögerung
+      setTimeout(() => window.close(), 300);
+    })();
+  </script>
+</body>
+</html>
