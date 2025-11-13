@@ -46290,10 +46290,10 @@ return A.as(["id",s.a,"firstName",s.b,"lastName",s.c,"email",s.d],t.N,t.z)},
 bX(){var s=0,r=A.Q(t.z),q,p,o,n,m,l,k
 var $async$bX=A.M(function(a,b){if(a===1)return A.N(b,r)
 while(true)switch(s){case 0:k=new A.aD($.au,t.i5)
-A.qB("Test: http://localhost:8000/me/")
+A.qB("Test: http://localhost:8000/me")
 p=new XMLHttpRequest()
 p.toString
-B.Sa.au_(p,"GET","http://localhost:8000/me/")
+B.Sa.au_(p,"GET","http://localhost:8000/me")
 p.withCredentials=!0
 A.aUY(p,"load",new A.awS(p,new A.bM(k,t.ox)),!1,t._p)
 p.send()
